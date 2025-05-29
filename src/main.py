@@ -32,9 +32,9 @@ parser.add_argument('--llik_scaling', type=float, default=0.,
                          'multimodal setting, set as 0 to use default value')
 parser.add_argument('--batch-size', type=int, default=256, metavar='N',
                     help='batch size for data (default: 256)')
-parser.add_argument('--epochs', type=int, default=10, metavar='E',
+parser.add_argument('--epochs', type=int, default=200, metavar='E',
                     help='number of epochs to train (default: 10)')
-parser.add_argument('--latent-dim', type=int, default=20, metavar='L',
+parser.add_argument('--latent-dim', type=int, default=128, metavar='L',
                     help='latent dimensionality (default: 20)')
 parser.add_argument('--num-hidden-layers', type=int, default=1, metavar='H',
                     help='number of hidden layers in enc and dec (default: 1)')
@@ -84,7 +84,13 @@ if not args.experiment:
     args.experiment = model.modelName
 
 # set up run path
-runId = datetime.datetime.now().isoformat()
+# runId = datetime.datetime.now().isoformat()
+runId = (
+    # f"MMVAE_"
+    f"{args.note}_{args.model}_{args.obj}_K{args.K}_B{args.batch_size}_"  # TODO (Yijie): complete args.likelihood
+    f"{args.latent_dim}_"
+    f"s{args.seed}_e{args.epochs}"
+)
 experiment_dir = Path('../experiments/' + args.experiment)
 experiment_dir.mkdir(parents=True, exist_ok=True)
 runPath = mkdtemp(prefix=runId, dir=str(experiment_dir))
@@ -159,9 +165,11 @@ if __name__ == '__main__':
         agg = defaultdict(list)
         for epoch in range(1, args.epochs + 1):
             train(epoch, agg)
-            test(epoch, agg)
-            save_model(model, runPath + '/model.rar')
-            save_vars(agg, runPath + '/losses.rar')
-            model.generate(runPath, epoch)
+            test_epoch = 5
+            if epoch % test_epoch == 0: # Original 1 epoch
+                test(epoch, agg)
+                save_model(model, runPath + '/model.rar')
+                save_vars(agg, runPath + '/losses.rar')
+                model.generate(runPath, epoch)
         if args.logp:  # compute as tight a marginal likelihood as possible
             estimate_log_marginal(5000)
