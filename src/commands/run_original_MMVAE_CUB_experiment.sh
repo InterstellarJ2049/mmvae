@@ -42,7 +42,7 @@ note="_default_keyParams"
 # --priorposterior "Normal" for Normal prior and posterior, "Laplace" for Laplace prior and posterior
 # debug_log and debug_pdb for debugging, default is False, set to True to enable
 CUDA_VISIBLE_DEVICES=${gpuid} python main.py --experiment $EXPERIMENT --model $MODEL --obj $OBJ \
-      ---K $K -batch-size $BATCH --epochs $EPOCHS \
+      --K $K --batch-size $BATCH --epochs $EPOCHS \
       --latent-dim $SHARED_LAT_DIM --seed $SEED \
       --note "${date}_${number}_gpu${gpuid}${note}"
 # 2>&1 | tee -a "${DATADIR}/${DATASET}/logs/log_${EXPERIMENT}_${number}_gpu${gpuid}_B${BATCH}_${AUG_L_SC}_${MVIB_L_SC}_${note}.txt"

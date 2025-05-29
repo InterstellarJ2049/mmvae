@@ -52,6 +52,8 @@ parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='disable CUDA use')
 parser.add_argument('--seed', type=int, default=1, metavar='S',
                     help='random seed (default: 1)')
+parser.add_argument('--note', type=str, default='',
+                    help='note to add to the run name (default: empty)')
 
 # args
 args = parser.parse_args()
@@ -88,7 +90,7 @@ if not args.experiment:
 runId = (
     # f"MMVAE_"
     f"{args.note}_{args.model}_{args.obj}_K{args.K}_B{args.batch_size}_"  # TODO (Yijie): complete args.likelihood
-    f"{args.latent_dim}_"
+    f"D{args.latent_dim}_"
     f"s{args.seed}_e{args.epochs}"
 )
 experiment_dir = Path('../experiments/' + args.experiment)
@@ -165,7 +167,7 @@ if __name__ == '__main__':
         agg = defaultdict(list)
         for epoch in range(1, args.epochs + 1):
             train(epoch, agg)
-            test_epoch = 5
+            test_epoch = 10
             if epoch % test_epoch == 0: # Original 1 epoch
                 test(epoch, agg)
                 save_model(model, runPath + '/model.rar')
