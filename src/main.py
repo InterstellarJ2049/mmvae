@@ -168,7 +168,7 @@ if __name__ == '__main__':
         agg = defaultdict(list)
         for epoch in range(1, args.epochs + 1):
             train(epoch, agg)
-            test_epoch = 1
+            test_epoch = 10
             if epoch % test_epoch == 0: # Original 1 epoch
                 test(epoch, agg)
                 save_model(model, runPath + '/model.rar')

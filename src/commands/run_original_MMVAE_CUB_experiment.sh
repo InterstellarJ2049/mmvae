@@ -17,7 +17,7 @@ fi
 
 # TODO (Yijie): add elboVCCA and dregVCCA replacing vcca
 MODEL="cubISft"  # mnist_svhn, cubISft, cubIS
-OBJ="dreg"  # elbo, dreg, iwae
+OBJ="iwae"  # elbo, dreg, iwae
 BATCH=256  # new_release: 32
 K=10  # new_release: 10
 EPOCHS=200  # new_release: 50
@@ -33,8 +33,8 @@ SHARED_LAT_DIM=128  # new_release: 48
 # MVIB_L_SC=0.0
 
 date=`echo $(date '+%m-%d')`
-number=debug
-gpuid=3
+number=7
+gpuid=0
 note=""
 
 # new_release: dreg+Z48+W16+K10+Normal
