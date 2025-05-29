@@ -18,7 +18,7 @@ fi
 # TODO (Yijie): add elboVCCA and dregVCCA replacing vcca
 MODEL="cubIS"  # mnist_svhn, cubISft, cubIS
 OBJ="iwae"  # elbo, dreg, iwae
-BATCH=128  # new_release: 32
+BATCH=256  # new_release: 32
 K=1  # new_release: 10
 EPOCHS=200  # new_release: 50
 SEED=2  # new_release: 2
