@@ -165,7 +165,8 @@ def pdist(sample_1, sample_2, eps=1e-5):
 def NN_lookup(emb_h, emb, data):
     indices = pdist(emb.to(emb_h.device), emb_h).argmin(dim=0)
     # indices = torch.tensor(cosine_similarity(emb, emb_h.cpu().numpy()).argmax(0)).to(emb_h.device).squeeze()
-    return data[indices]
+    # import pdb; pdb.set_trace()
+    return data[indices.cpu()]
 
 
 class FakeCategorical(dist.Distribution):

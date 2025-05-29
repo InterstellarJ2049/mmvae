@@ -16,7 +16,7 @@ elif [ "$DATASET" = "CUBcluster8" ]; then
 fi
 
 # TODO (Yijie): add elboVCCA and dregVCCA replacing vcca
-MODEL="cubIS"  # mnist_svhn, cubISft, cubIS
+MODEL="cubISft"  # mnist_svhn, cubISft, cubIS
 OBJ="dreg"  # elbo, dreg, iwae
 BATCH=256  # new_release: 32
 K=10  # new_release: 10
@@ -33,8 +33,8 @@ SHARED_LAT_DIM=128  # new_release: 48
 # MVIB_L_SC=0.0
 
 date=`echo $(date '+%m-%d')`
-number=5
-gpuid=2
+number=debug
+gpuid=3
 note=""
 
 # new_release: dreg+Z48+W16+K10+Normal
