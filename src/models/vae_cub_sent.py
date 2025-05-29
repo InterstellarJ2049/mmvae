@@ -21,7 +21,7 @@ embeddingDim = 128
 lenWindow = 3
 fBase = 32
 vocabSize = 1590
-vocab_path = '../data/cub/oc:{}_sl:{}_s:{}_w:{}/cub.vocab'.format(minOccur, maxSentLen, 300, lenWindow)
+vocab_path = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_sl:{}_s:{}_w:{}/cub.vocab'.format(minOccur, maxSentLen, 300, lenWindow)
 
 
 # Classes
@@ -147,8 +147,8 @@ class CUB_Sentence(VAE):
     def getDataLoaders(batch_size, shuffle=True, device="cuda"):
         kwargs = {'num_workers': 1, 'pin_memory': True} if device == "cuda" else {}
         tx = lambda data: torch.Tensor(data)
-        t_data = CUBSentences('../data', split='train', transform=tx, max_sequence_length=maxSentLen)
-        s_data = CUBSentences('../data', split='test', transform=tx, max_sequence_length=maxSentLen)
+        t_data = CUBSentences('/data/backed_up/shared/Data/MMVAE', split='train', transform=tx, max_sequence_length=maxSentLen)
+        s_data = CUBSentences('/data/backed_up/shared/Data/MMVAE', split='test', transform=tx, max_sequence_length=maxSentLen)
 
         train_loader = DataLoader(t_data, batch_size=batch_size, shuffle=shuffle, **kwargs)
         test_loader = DataLoader(s_data, batch_size=batch_size, shuffle=shuffle, **kwargs)

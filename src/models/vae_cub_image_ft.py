@@ -94,8 +94,8 @@ class CUB_Image_ft(VAE):
     def getDataLoaders(self, batch_size, shuffle=True, device="cuda"):
         kwargs = {'num_workers': 1, 'pin_memory': True} if device == "cuda" else {}
 
-        train_dataset = CUBImageFt('../data', 'train', device)
-        test_dataset = CUBImageFt('../data', 'test', device)
+        train_dataset = CUBImageFt('/data/backed_up/shared/Data/MMVAE', 'train', device)
+        test_dataset = CUBImageFt('/data/backed_up/shared/Data/MMVAE', 'test', device)
         train_loader = torch.utils.data.DataLoader(train_dataset,
                                                    batch_size=batch_size, shuffle=shuffle, **kwargs)
         test_loader = torch.utils.data.DataLoader(test_dataset,

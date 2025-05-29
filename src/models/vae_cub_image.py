@@ -110,10 +110,10 @@ class CUB_Image(VAE):
         kwargs = {'num_workers': 1, 'pin_memory': True} if device == "cuda" else {}
         tx = transforms.Compose([transforms.Resize([64, 64]), transforms.ToTensor()])
         train_loader = torch.utils.data.DataLoader(
-            datasets.ImageFolder('../data/cub/train', transform=tx),
+            datasets.ImageFolder('/data/backed_up/shared/Data/MMVAE/cub/train', transform=tx),
             batch_size=batch_size, shuffle=shuffle, **kwargs)
         test_loader = torch.utils.data.DataLoader(
-            datasets.ImageFolder('../data/cub/test', transform=tx),
+            datasets.ImageFolder('/data/backed_up/shared/Data/MMVAE/cub/test', transform=tx),
             batch_size=batch_size, shuffle=shuffle, **kwargs)
         return train_loader, test_loader
 

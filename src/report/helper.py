@@ -80,7 +80,7 @@ def cca(views, k=None, eps=1e-12):
 
 def fetch_emb(lenWindow, minOccur, emb_path, vocab_path, RESET):
     if not os.path.exists(emb_path) or RESET:
-        with open('../data/cub/text_trainvalclasses.txt', 'r') as file:
+        with open('/data/backed_up/shared/Data/MMVAE/cub/text_trainvalclasses.txt', 'r') as file:
             text = file.read()
             sentences = sent_tokenize(text)
 
@@ -115,7 +115,7 @@ def fetch_emb(lenWindow, minOccur, emb_path, vocab_path, RESET):
 
 def fetch_weights(weights_path, vocab_path, RESET, a=1e-3):
     if not os.path.exists(weights_path) or RESET:
-        with open('../data/cub/text_trainvalclasses.txt', 'r') as file:
+        with open('/data/backed_up/shared/Data/MMVAE/cub/text_trainvalclasses.txt', 'r') as file:
             text = file.read()
             sentences = sent_tokenize(text)
             occ_register = OrderedCounter()

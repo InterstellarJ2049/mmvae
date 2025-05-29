@@ -155,7 +155,7 @@ def _maybe_train_or_load_digit_classifier_img(path, epochs):
 def cross_coherence(epochs):
     model.eval()
 
-    mnist_net, svhn_net = _maybe_train_or_load_digit_classifier_img("../data/{}_model.pt", epochs=epochs)
+    mnist_net, svhn_net = _maybe_train_or_load_digit_classifier_img("/data/backed_up/shared/Data/MMVAE/{}_model.pt", epochs=epochs)
     mnist_net.eval()
     svhn_net.eval()
 
@@ -183,8 +183,8 @@ def cross_coherence(epochs):
 def joint_coherence():
     model.eval()
     mnist_net, svhn_net = MNIST_Classifier().to(device), SVHN_Classifier().to(device)
-    mnist_net.load_state_dict(torch.load('../data/mnist_model.pt'))
-    svhn_net.load_state_dict(torch.load('../data/svhn_model.pt'))
+    mnist_net.load_state_dict(torch.load('/data/backed_up/shared/Data/MMVAE/mnist_model.pt'))
+    svhn_net.load_state_dict(torch.load('/data/backed_up/shared/Data/MMVAE/svhn_model.pt'))
 
     mnist_net.eval()
     svhn_net.eval()

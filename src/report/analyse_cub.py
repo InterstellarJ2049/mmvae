@@ -25,7 +25,7 @@ minOccur = 3
 lenEmbedding = 300
 lenWindow = 3
 fBase = 96
-vocab_dir = '../data/cub/oc:{}_sl:{}_s:{}_w:{}'.format(minOccur, maxSentLen, lenEmbedding, lenWindow)
+vocab_dir = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_sl:{}_s:{}_w:{}'.format(minOccur, maxSentLen, lenEmbedding, lenWindow)
 batch_size = 256
 
 # args

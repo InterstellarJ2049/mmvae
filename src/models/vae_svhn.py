@@ -104,9 +104,9 @@ class SVHN(VAE):
     def getDataLoaders(batch_size, shuffle=True, device='cuda'):
         kwargs = {'num_workers': 1, 'pin_memory': True} if device == 'cuda' else {}
         tx = transforms.ToTensor()
-        train = DataLoader(datasets.SVHN('../data', split='train', download=True, transform=tx),
+        train = DataLoader(datasets.SVHN('/data/backed_up/shared/Data/MMVAE', split='train', download=True, transform=tx),
                            batch_size=batch_size, shuffle=shuffle, **kwargs)
-        test = DataLoader(datasets.SVHN('../data', split='test', download=True, transform=tx),
+        test = DataLoader(datasets.SVHN('/data/backed_up/shared/Data/MMVAE', split='test', download=True, transform=tx),
                           batch_size=batch_size, shuffle=shuffle, **kwargs)
         return train, test
 

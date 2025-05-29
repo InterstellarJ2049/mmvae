@@ -90,9 +90,9 @@ class MNIST(VAE):
     def getDataLoaders(batch_size, shuffle=True, device="cuda"):
         kwargs = {'num_workers': 1, 'pin_memory': True} if device == "cuda" else {}
         tx = transforms.ToTensor()
-        train = DataLoader(datasets.MNIST('../data', train=True, download=True, transform=tx),
+        train = DataLoader(datasets.MNIST('/data/backed_up/shared/Data/MMVAE', train=True, download=True, transform=tx),
                            batch_size=batch_size, shuffle=shuffle, **kwargs)
-        test = DataLoader(datasets.MNIST('../data', train=False, download=True, transform=tx),
+        test = DataLoader(datasets.MNIST('/data/backed_up/shared/Data/MMVAE', train=False, download=True, transform=tx),
                           batch_size=batch_size, shuffle=shuffle, **kwargs)
         return train, test
 
