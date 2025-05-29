@@ -91,7 +91,8 @@ runId = (
     f"{args.latent_dim}_"
     f"s{args.seed}_e{args.epochs}"
 )
-experiment_dir = Path('../experiments/' + args.experiment)
+base_dir = Path('../experiments')
+experiment_dir = base_dir / args.experiment / args.model # experiment_dir = Path('../experiments/' + args.experiment)
 experiment_dir.mkdir(parents=True, exist_ok=True)
 runPath = mkdtemp(prefix=runId, dir=str(experiment_dir))
 sys.stdout = Logger('{}/run.log'.format(runPath))
