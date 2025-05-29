@@ -16,7 +16,7 @@ elif [ "$DATASET" = "CUBcluster8" ]; then
 fi
 
 # TODO (Yijie): add elboVCCA and dregVCCA replacing vcca
-MODEL="cubIS"  # mnist_svhn, cubISft, cubIS
+MODEL="cubISft"  # mnist_svhn, cubISft, cubIS
 OBJ="iwae"  # elbo, dreg, iwae
 BATCH=256  # new_release: 32
 K=10  # new_release: 10
