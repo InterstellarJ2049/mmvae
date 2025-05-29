@@ -25,7 +25,9 @@ minOccur = 3
 lenEmbedding = 300
 lenWindow = 3
 fBase = 96
-vocab_dir = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_sl:{}_s:{}_w:{}'.format(minOccur, maxSentLen, lenEmbedding, lenWindow)
+# vocab_dir = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_sl:{}_s:{}_w:{}'.format(minOccur, maxSentLen, lenEmbedding, lenWindow)
+vocab_dir = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_msl:{}/cub.vocab'.format(minOccur, maxSentLen)
+# '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_msl:{}/cub.vocab'.format(minOccur, maxSentLen)
 batch_size = 256
 
 # args

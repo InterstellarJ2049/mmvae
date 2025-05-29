@@ -21,8 +21,9 @@ embeddingDim = 128
 lenWindow = 3
 fBase = 32
 vocabSize = 1590
-vocab_path = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_sl:{}_s:{}_w:{}/cub.vocab'.format(minOccur, maxSentLen, 300, lenWindow)
-
+# vocab_path = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_sl:{}_s:{}_w:{}/cub.vocab'.format(minOccur, maxSentLen, 300, lenWindow)
+vocab_path = '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_msl:{}/cub.vocab'.format(minOccur, maxSentLen)
+# '/data/backed_up/shared/Data/MMVAE/cub/oc:{}_msl:{}/cub.vocab'.format(minOccur, maxSentLen)
 
 # Classes
 class Enc(nn.Module):
